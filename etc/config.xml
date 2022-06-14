@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2021. All rights reserved.
+  ~ @author: Volodymyr Hryvinskyi <mailto:volodymyr@hryvinskyi.com>
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <hryvinskyi_pagespeed>
+            <js>
+                <extreme_lazy_load>
+                    <enabled>0</enabled>
+                    <enabled_timeout>1</enabled_timeout>
+                    <timeout>8000</timeout>
+                    <delay_events>scroll,mousemove,touchstart</delay_events>
+                    <allowed_types><![CDATA[application/javascript
+text/javascript
+javascript
+text/jsx;harmony=true]]></allowed_types>
+                </extreme_lazy_load>
+            </js>
+        </hryvinskyi_pagespeed>
+    </default>
+</config>
