@@ -10,7 +10,7 @@
         <hryvinskyi_pagespeed>
             <js>
                 <extreme_lazy_load>
-                    <enabled>0</enabled>
+                    <enabled>1</enabled>
                     <enabled_timeout>1</enabled_timeout>
                     <timeout>8000</timeout>
                     <delay_events>scroll,mousemove,touchstart</delay_events>
@@ -18,6 +18,9 @@
 text/javascript
 javascript
 text/jsx;harmony=true]]></allowed_types>
+                    <exclude_by_contain_text><![CDATA[*window.checkout =*
+*window.checkout=*
+]]></exclude_by_contain_text>
                 </extreme_lazy_load>
             </js>
         </hryvinskyi_pagespeed>
