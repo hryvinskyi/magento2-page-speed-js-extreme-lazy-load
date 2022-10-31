@@ -24,6 +24,10 @@ class Config implements ConfigInterface
     public const XML_CONF_EXCLUDE_BY_ATTRIBUTES = 'hryvinskyi_pagespeed/js/extreme_lazy_load/exclude_by_attributes';
     public const XML_CONF_EXCLUDE_BY_CONTAIN_TEXT = 'hryvinskyi_pagespeed/js/extreme_lazy_load/exclude_by_contain_text';
     public const XML_CONF_ALLOWED_TYPES = 'hryvinskyi_pagespeed/js/extreme_lazy_load/allowed_types';
+    public const XML_CONF_IS_APPLY_FOR_PAGE_TYPES = 'hryvinskyi_pagespeed/js/extreme_lazy_load/is_apply_for_page_types';
+    public const XML_CONF_APPLY_FOR_PAGE_TYPES = 'hryvinskyi_pagespeed/js/extreme_lazy_load/apply_for_page_types';
+    public const XML_CONF_IS_DISABLE_FOR_PAGE_TYPES = 'hryvinskyi_pagespeed/js/extreme_lazy_load/is_disable_for_page_types';
+    public const XML_CONF_DISABLE_FOR_PAGE_TYPES = 'hryvinskyi_pagespeed/js/extreme_lazy_load/disable_for_page_types';
     private ScopeConfigInterface $scopeConfig;
 
     /**
@@ -97,5 +101,61 @@ class Config implements ConfigInterface
             PHP_EOL,
             (string)$this->scopeConfig->getValue(self::XML_CONF_ALLOWED_TYPES, $scopeType, $scopeCode)
         );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function isApplyForPageTypes($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): bool
+    {
+        return $this->scopeConfig->isSetFlag(self::XML_CONF_IS_APPLY_FOR_PAGE_TYPES, $scopeType, $scopeCode);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getApplyForPageTypes($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): array
+    {
+        $types = $this->scopeConfig->getValue(self::XML_CONF_APPLY_FOR_PAGE_TYPES, $scopeType, $scopeCode);
+
+        if (empty($types)) {
+            return [];
+        }
+
+        $result = explode(PHP_EOL, $types);
+
+        foreach ($result as $key => $value) {
+            $result[$key] = trim($value);
+        }
+
+        return $result;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function isDisableForPageTypes($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): bool
+    {
+        return $this->scopeConfig->isSetFlag(self::XML_CONF_IS_DISABLE_FOR_PAGE_TYPES, $scopeType, $scopeCode);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getDisableForPageTypes($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): array
+    {
+        $types = $this->scopeConfig->getValue(self::XML_CONF_DISABLE_FOR_PAGE_TYPES, $scopeType, $scopeCode);
+
+        if (empty($types)) {
+            return [];
+        }
+
+        $result = explode(PHP_EOL, $types);
+
+        foreach ($result as $key => $value) {
+            $result[$key] = trim($value);
+        }
+
+        return $result;
     }
 }

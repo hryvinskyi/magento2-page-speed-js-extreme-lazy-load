@@ -21,6 +21,10 @@ text/jsx;harmony=true]]></allowed_types>
                     <exclude_by_contain_text><![CDATA[*window.checkout =*
 *window.checkout=*
 ]]></exclude_by_contain_text>
+                    <is_apply_for_page_types>0</is_apply_for_page_types>
+                    <apply_for_page_types><![CDATA[]]></apply_for_page_types>
+                    <is_disable_for_page_types>0</is_disable_for_page_types>
+                    <disable_for_page_types><![CDATA[]]></disable_for_page_types>
                 </extreme_lazy_load>
             </js>
         </hryvinskyi_pagespeed>
