@@ -23,6 +23,7 @@ class Config implements ConfigInterface
     public const XML_CONF_DELAY_EVENTS = 'hryvinskyi_pagespeed/js/extreme_lazy_load/delay_events';
     public const XML_CONF_EXCLUDE_BY_ATTRIBUTES = 'hryvinskyi_pagespeed/js/extreme_lazy_load/exclude_by_attributes';
     public const XML_CONF_EXCLUDE_BY_CONTAIN_TEXT = 'hryvinskyi_pagespeed/js/extreme_lazy_load/exclude_by_contain_text';
+    public const XML_CONF_EXCLUDE_BY_URI = 'hryvinskyi_pagespeed/js/extreme_lazy_load/exclude_by_uri';
     public const XML_CONF_ALLOWED_TYPES = 'hryvinskyi_pagespeed/js/extreme_lazy_load/allowed_types';
     public const XML_CONF_IS_APPLY_FOR_PAGE_TYPES = 'hryvinskyi_pagespeed/js/extreme_lazy_load/is_apply_for_page_types';
     public const XML_CONF_APPLY_FOR_PAGE_TYPES = 'hryvinskyi_pagespeed/js/extreme_lazy_load/apply_for_page_types';
@@ -89,6 +90,17 @@ class Config implements ConfigInterface
         return explode(
             PHP_EOL,
             (string)$this->scopeConfig->getValue(self::XML_CONF_EXCLUDE_BY_CONTAIN_TEXT, $scopeType, $scopeCode)
+        );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getExcludeByUri($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): array
+    {
+        return explode(
+            PHP_EOL,
+            (string)$this->scopeConfig->getValue(self::XML_CONF_EXCLUDE_BY_URI, $scopeType, $scopeCode)
         );
     }
 

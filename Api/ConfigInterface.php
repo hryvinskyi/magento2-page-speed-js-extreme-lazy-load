@@ -62,6 +62,14 @@ interface ConfigInterface
      * @return array
      */
     public function getAllowedTypes($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): array;
+
+    /**
+     * @param $scopeCode
+     * @param string $scopeType
+     * @return array
+     */
+    public function getExcludeByUri($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): array;
+
     /**
      * @param mixed $scopeCode
      * @param string $scopeType
