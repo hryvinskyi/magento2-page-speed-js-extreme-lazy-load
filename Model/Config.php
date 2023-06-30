@@ -68,11 +68,13 @@ class Config implements ConfigInterface
      */
     public function getDelayEvents($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): array
     {
-        return array_map(
-            'trim',
-            explode(
-                ',',
-                (string)$this->scopeConfig->getValue(self::XML_CONF_DELAY_EVENTS, $scopeType, $scopeCode)
+        return  array_filter(
+            array_map(
+                'trim',
+                explode(
+                    ',',
+                    (string)$this->scopeConfig->getValue(self::XML_CONF_DELAY_EVENTS, $scopeType, $scopeCode)
+                )
             )
         );
     }
@@ -82,11 +84,13 @@ class Config implements ConfigInterface
      */
     public function getExcludeByAttributes($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): array
     {
-        return array_map(
-            'trim',
-            explode(
-                ',',
-                (string)$this->scopeConfig->getValue(self::XML_CONF_EXCLUDE_BY_ATTRIBUTES, $scopeType, $scopeCode)
+        return array_filter(
+            array_map(
+                'trim',
+                explode(
+                    ',',
+                    (string)$this->scopeConfig->getValue(self::XML_CONF_EXCLUDE_BY_ATTRIBUTES, $scopeType, $scopeCode)
+                )
             )
         );
     }
@@ -96,11 +100,13 @@ class Config implements ConfigInterface
      */
     public function getExcludeByContainText($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): array
     {
-        return array_map(
-            'trim',
-            explode(
-                PHP_EOL,
-                (string)$this->scopeConfig->getValue(self::XML_CONF_EXCLUDE_BY_CONTAIN_TEXT, $scopeType, $scopeCode)
+        return array_filter(
+            array_map(
+                'trim',
+                explode(
+                    PHP_EOL,
+                    (string)$this->scopeConfig->getValue(self::XML_CONF_EXCLUDE_BY_CONTAIN_TEXT, $scopeType, $scopeCode)
+                )
             )
         );
     }
@@ -110,11 +116,13 @@ class Config implements ConfigInterface
      */
     public function getExcludeByUri($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): array
     {
-        return array_map(
-            'trim',
-            explode(
-                PHP_EOL,
-                (string)$this->scopeConfig->getValue(self::XML_CONF_EXCLUDE_BY_URI, $scopeType, $scopeCode)
+        return array_filter(
+            array_map(
+                'trim',
+                explode(
+                    PHP_EOL,
+                    (string)$this->scopeConfig->getValue(self::XML_CONF_EXCLUDE_BY_URI, $scopeType, $scopeCode)
+                )
             )
         );
     }
@@ -124,11 +132,13 @@ class Config implements ConfigInterface
      */
     public function getAllowedTypes($scopeCode = null, string $scopeType = ScopeInterface::SCOPE_STORE): array
     {
-        return array_map(
-            'trim',
-            explode(
-                PHP_EOL,
-                (string)$this->scopeConfig->getValue(self::XML_CONF_ALLOWED_TYPES, $scopeType, $scopeCode)
+        return array_filter(
+            array_map(
+                'trim',
+                explode(
+                    PHP_EOL,
+                    (string)$this->scopeConfig->getValue(self::XML_CONF_ALLOWED_TYPES, $scopeType, $scopeCode)
+                )
             )
         );
     }
