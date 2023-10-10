@@ -13,7 +13,7 @@
                     <enabled>1</enabled>
                     <enabled_timeout>1</enabled_timeout>
                     <timeout>8000</timeout>
-                    <delay_events>scroll,mousemove,touchstart</delay_events>
+                    <delay_events>scroll,mousemove,touchstart,ExtremeLazyLoad</delay_events>
                     <allowed_types><![CDATA[application/javascript
 text/javascript
 javascript
